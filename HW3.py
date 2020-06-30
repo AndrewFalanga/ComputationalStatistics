@@ -17,9 +17,7 @@ logLikely = lambda x, th: -1 * (np.log(np.pi) + np.log(1 + (x - th)**2)).sum()
 #logLikely = lambda x, th: -1 * (np.log(np.pi)) * np.log(1 + (x - th)**2).sum()
 obs = np.array([1.77, -0.23, 2.76, 3.80, 3.47, 56.75, -1.34, 4.24, -2.44, 3.29, 3.71, -2.40, 4.53, -0.07, -1.05, -13.87, -2.53, -1.75, 0.27, 43.21])
 
-#gp = lambda x, th: np.pi * ((-2*th + 2*x)/(((-th + x)**2 + 1)**2)).sum()
-gp = lambda x, th: (-1 * (-2*th + 2*x)/(((-th + x)**2 + 1)**2)).sum()
-#gpp = lambda x, th: 2*np.pi * (((4*(th - x)**2)/((th - x)**2 + 1) - 1)/((th - x)**2 + 1)**2).sum()
+gp = lambda x, th: 2 * ((x - th)/((x - th)**2 + 1)).sum()
 gpp = lambda x, th: 2 * (((2*(th - x)**2 / ((th - x)**2 + 1)) - 1)/((th - x)**2 + 1)).sum()
 step = lambda x, th: gp(x, th)/gpp(x, th)
 

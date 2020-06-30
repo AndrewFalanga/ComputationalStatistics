@@ -32,7 +32,7 @@ def newtonsMethod(interval, guess, f, h, maxIterations = 10, samples = None, deb
 
         x = x + h(x) if samples is None else h(samples, x)
         if x < interval[0] or x > interval[1]:
-            raise ValueError("There is no solution in this interval")
+            raise ValueError("No solution on interval. Iter {}, x = {}".format(iteration, x))
         iteration += 1
 
     # If we got here, a root was found
